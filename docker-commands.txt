@@ -1,0 +1,13 @@
+Docker commands
+1)	docker build <path to your dockerfile> -t <image-name> (to build custom images)
+2)	docker images (to view the list of images)
+3)	docker image rm <image-id> (to delete the image)
+4)	docker run -v <path-to-folder-on-local-machine>:<path-to-folder-on-container>:ro --name=<your-container-name> -d -e PORT=4000 -p 3000:4000 <your-image-name> (to create a container out of an image,-v flag for volume mounting specifically bind mounts, ro for read only bind mounts (now allow the container to change the files on our local system), -d flag to run it in a detached mode, -p flag for port mapping, -e flag for environment variables)
+5)	docker ps (to view the list of  only running containers) 
+6)	docker ps -a (to view list of all containers)
+7)	docker exec -it <your-container-name> bash (to view the contents of your container)
+8)	docker rm <your-container-name> -f (to forcefully delete a container)
+9)	docker run -v <path-to-folder-on-local-machine>:<path-to-folder-on-container>:ro --name=<your-container-name> -d --env-file ./.env -p 3000:4000 <your-image-name> (passing the .env file instead of env variables)
+10) docker volume ls (to list all the volumes)
+11) docker-compose up --build -d (to run the docker-compose.yml file, create containers and run in detached mode, --build is to delete stale images)
+12) docker-compose down -v (to destroy the existing containers, -v flag to delete the existing volumes)
